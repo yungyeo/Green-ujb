@@ -23,6 +23,7 @@ public class Tire {
 		bigsize = pbigsize;
 	}
 	
+	
 	//case2
 	public void setDoubleSize() {
 		size = size *2;

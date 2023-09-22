@@ -9,10 +9,14 @@ public class Sedan {
 //		compoTire.size = 20;
 		compoTire.setSize(20);
 		
+		//case2
+		compoTire.setDoubleSize();	//객체값 자체를 변경해서 추출함.
+		
 //		System.out.println(compoTire.size);
 		System.out.println(compoTire.getSize());
-		System.out.println(compoTire.getBigSize());
-//		System.out.println(compoTire.setDoubleSize());
+		
+		//case1
+		System.out.println(compoTire.getBigSize());	//객체값을 그대로 출력한 후 값을 변경하여 추출함.
 	}
 
 }
