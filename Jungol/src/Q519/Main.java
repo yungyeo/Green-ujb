@@ -1,4 +1,4 @@
-package Q135;
+package Q519;
 
 import java.util.Scanner;
 
@@ -9,6 +9,7 @@ public class Main {
 		int inp2 = sc.nextInt();
 		sc.close();
 		
-		int min = (inp1 < inp2);
+		System.out.print((inp1 + 100) + " ");
+		System.out.println(inp2 % 10);
 	}
 }
