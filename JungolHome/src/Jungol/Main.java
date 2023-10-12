@@ -5,12 +5,14 @@ import java.util.Scanner;
 public class Main {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		double dou1 = sc.nextDouble();
-		double dou2 = sc.nextDouble();
-		String sr = sc.next();
+		double a = 91.44;
+		
+		System.out.print("yard? ");
+		double b = sc.nextDouble();
+		double sum = a * b;
 		sc.close();
 		
-		System.out.printf("%.2f\n%.2f\n", dou1, dou2);
-		System.out.println(sr);
+		System.out.print(b  + "yard = ");
+		System.out.printf("%.1fcm", sum);
 	}
 }
