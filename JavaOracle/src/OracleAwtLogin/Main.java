@@ -11,12 +11,12 @@ import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 
 public class Main extends WindowAdapter implements ActionListener {
-	private Button btn1;
+	private Button login,register;
 	private TextField id, pwd, check;
 	private Frame f;
 	private Label lid, lpwd, checked;
 	private MemberDAO dao;
-	private Frame mainFrame;
+	private Frame mainFrame, Register;
 
 	public Main() {
 		dao = new MemberDAO();
@@ -28,6 +28,11 @@ public class Main extends WindowAdapter implements ActionListener {
 		mainFrame.setSize(400, 300);
 		mainFrame.setLocation(10, 20);
 		mainFrame.setVisible(false);
+		
+		Register = new Frame("Register");
+		Register.setSize(400, 300);
+		Register.setLocation(10, 20);
+		Register.setVisible(false);
 
 		lid = new Label("ID : ", Label.RIGHT);
 		lid.setBounds(20, 20, 50, 50);
@@ -36,8 +41,11 @@ public class Main extends WindowAdapter implements ActionListener {
 		checked = new Label("Check : ");
 		checked.setBounds(20, 80, 50, 50);
 
-		btn1 = new Button("Login");
-		btn1.setBounds(300, 33, 65, 80);
+		login = new Button("Login");
+		login.setBounds(300, 30, 65, 55);
+		
+		register = new Button("Register");
+		register.setBounds(300, 90, 65, 30);
 
 		id = new TextField(10);
 		id.setBounds(80, 36, 200, 20);
@@ -48,7 +56,8 @@ public class Main extends WindowAdapter implements ActionListener {
 		check = new TextField(30);
 		check.setBounds(80, 95, 200, 20);
 
-		btn1.addActionListener(this);
+		login.addActionListener(this);
+		register.addActionListener(this);
 		f.addWindowListener(this);
 
 		f.add(lid);
@@ -57,7 +66,8 @@ public class Main extends WindowAdapter implements ActionListener {
 		f.add(pwd);
 		f.add(checked);
 		f.add(check);
-		f.add(btn1);
+		f.add(login);
+		f.add(register);
 		f.setVisible(true);
 		
 		mainFrame.addWindowListener(new WindowAdapter() {
@@ -66,14 +76,27 @@ public class Main extends WindowAdapter implements ActionListener {
 			}
 		});
 		
+		Register.addWindowListener(new WindowAdapter() {
+			public void windowClosing(WindowEvent e) {
+				Register.dispose();
+			}
+		});
+		
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		if(e.getActionCommand().equals("Login")) {
 		System.out.println("Login Click!");
 		System.out.println("ID - " + id.getText());
-		System.out.println("PW - " + pwd.getText());
+		System.out.println("PW - " + pwd.getText());}
+		else if(e.getActionCommand().equals("Register")) {
+			System.out.println("Register Click!");	
+			Register.setVisible(true);
+			f.setVisible(false);
+		}
 
+		/*
 		if (!id.getText().equals("") && !pwd.getText().equals("")) {
 			ArrayList<MemberVO> ar = dao.list(id.getText());
 			if (ar.size() != 0 && ar.get(0).getPwd().equals(pwd.getText())) {
@@ -86,6 +109,7 @@ public class Main extends WindowAdapter implements ActionListener {
 		} else {
 			check.setText("틀렸습니다. ");
 		}
+		*/
 	}
 
 	@Override
