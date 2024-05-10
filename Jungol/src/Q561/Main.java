@@ -16,11 +16,16 @@ public class Main {
 					min = inp[i];
 				}
 			} else if (inp[i] < 100) {
-				if (max < inp[i] || inp[i] != 100) {
+				if (max < inp[i]) {
 					max = inp[i];
-					max = 100;
 				}
 			}
+		}
+
+		if (max == 1) {
+			max = 100;
+		} else if(min == 10000) {
+			min = 100;
 		}
 		System.out.println(max + " " + min);
 		sc.close();
